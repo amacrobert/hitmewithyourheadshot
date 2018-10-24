@@ -9,18 +9,23 @@ import Tab from '@material-ui/core/Tab';
 
 require('../css/app.css');
 
+const tabs = {
+    portfolio: 0,
+    bookings: 1,
+    about: 2,
+}
+
 class App extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            tabValue: 0,
+            tabValue: tabs.portfolio,
         }
     }
 
     handleTabChange = (event, tabValue) => {
-        console.log(tabValue);
         this.setState({tabValue: tabValue});
     };
 
@@ -35,16 +40,16 @@ class App extends React.Component {
                             Hit Me With Your Headshot
                         </Typography>
                     </ToolBar>
-                    <Tabs value={tabValue} onChange={this.handleTabChange}>
+                    <Tabs value={tabValue} onChange={this.handleTabChange} centered>
                         <Tab label='Portfolio' />
                         <Tab label='Rates & Bookings' />
                         <Tab label='About Me' />
                     </Tabs>
                 </AppBar>
 
-                {tabValue === 0 && <Typography component='div' style={{padding: 24}}>Portfolio!</Typography> }
-                {tabValue === 1 && <Typography component='div' style={{padding: 24}}>Book now!</Typography> }
-                {tabValue === 2 && <Typography component='div' style={{padding: 24}}>About!!!</Typography> }
+                {tabValue === tabs.portfolio && <Typography component='div' style={{padding: 24}}>Portfolio!</Typography> }
+                {tabValue === tabs.bookings && <Typography component='div' style={{padding: 24}}>Book now!</Typography> }
+                {tabValue === tabs.about && <Typography component='div' style={{padding: 24}}>About!!!</Typography> }
             </div>
         );
     }
