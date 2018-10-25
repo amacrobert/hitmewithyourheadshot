@@ -34,10 +34,21 @@ class App extends React.Component {
 
         return (
             <div style={{flexGrow: 1}}>
-                <AppBar position='static' color='default'>
-                    <ToolBar>
-                        <Typography variant='h6' color='inherit'>
+                <AppBar position='static' color='default' style={{paddingTop: 16}}>
+                    <ToolBar style={{flexDirection: 'column'}}>
+                        <Typography
+                            variant='title'
+                            color='inherit'
+                            algin='left'
+                            style={{fontFamily: 'Shrikhand, cursive', alignSelf: 'flex-start'}}>
                             Hit Me With Your Headshot
+                        </Typography>
+                        <Typography
+                            variant='subheading'
+                            align='left'
+                            color='inherit'
+                            style={{alignSelf: 'flex-start'}}>
+                            Boston Headshot Photography by Andrew MacRobert
                         </Typography>
                     </ToolBar>
                     <Tabs value={tabValue} onChange={this.handleTabChange} centered>
